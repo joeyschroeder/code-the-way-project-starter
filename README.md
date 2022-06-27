@@ -20,6 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
   - [Running the Application Locally](#running-application-locally)
   - [ESLint and Prettier.io](#eslint-and-prettierio)
+  - [Naming Conventions](#naming-conventions)
   - [Committing](#committing)
 
 - [Application Structure](#application-structure)
@@ -217,6 +218,49 @@ This file can be accessed in the following locations:
 
 - Windows: `%APPDATA%\Code\User\settings.json`
 - macOS `$HOME/Library/Application Support/Code/User/settings.json`
+
+<a name="naming-conventions"></a>
+
+### Naming Conventions
+
+Applications can quickly become very complex. To help navigate through this complexity it is important to write **readable** code.
+
+When code is difficult to read, developers spend more time trying to decrypt code than actually writing or modifying the application. Additionally, when code is difficult to read developers may often repeat work, or re-do work unnecessarily.
+
+Reading code should be simple. If it's not simple, and requires further explanation, perhaps you re-write, re-name, or add comments to your code.
+
+#### Prefer Explanatory Names
+
+Function names should clearly describe what a function does. Variable names should clearly explain what the variable is.
+
+Every function is an action, so it should contain a verb. For example:
+
+- `updateFilename(file, 'filename.txt')` updates file to "filename.txt"
+- `reloadTableData()` means to reload table data
+- `isBirthDay()` means checking if today is birth day
+- `getAddress()` or `setAddress("My Address")` mean getting or setting an object's address.
+
+Function and variable names should explain exactly what they do. Not too short, not too long. Don't be afraid to make longer variable or function names. For example, a function named `inc()` is short, but `increaseValue()` is more descriptive.
+
+#### Use Natural Language
+
+The code doesn't care how you feed it instructions, but another developer will greatly appreciate if they can read those instructions. Make your code as short, concise stories. Variables are nouns and functions are verbs.
+
+Suppose you wanted to "append the number 8 to the end of an array called 'elements'." Let's write our code in a way that reflects that:
+
+```
+function append(array, value) {
+  return [...array, value]
+}
+
+const elements = [1, 2, 3];
+console.log(append(elements, 8));
+// [1, 2, 3, 8]
+```
+
+Notice how the `append` function provides useful parameter names, and you can actually _read_ the code as "append elements (with) 8." Try to write your code with natural readable language in easy-to-understand steps before writing actual code.
+
+Click [here](https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/) for more detailed examples of writing readable code.
 
 <a name="committing"></a>
 
