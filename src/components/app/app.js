@@ -17,22 +17,27 @@ export default function App() {
   return (
     <>
       <CssBaseline />
-      <AppBar title={siteName} onMenuClick={openNavigation} />
-      <AppNavigation active={navigationActive} onCloseClick={closeNavigation} />
       <Box
         sx={{
-          mt: {
-            xs: 7,
-            sm: 10,
-          },
+          backgroundColor: 'grey.200',
+          minHeight: '100%',
         }}
       >
-        <Outlet />
+        <AppBar title={siteName} onMenuClick={openNavigation} />
+        <AppNavigation
+          active={navigationActive}
+          onCloseClick={closeNavigation}
+        />
+        <Box sx={{ overflowX: 'hidden', overflowY: 'auto' }}>
+          <Box sx={{ mt: { xs: 9, sm: 10 } }}>
+            <Outlet />
+          </Box>
+          <AppCopyright
+            siteName={siteName}
+            siteLink="https://www.codetheway.org/"
+          />
+        </Box>
       </Box>
-      <AppCopyright
-        siteName={siteName}
-        siteLink="https://www.codetheway.org/"
-      />
     </>
   );
 }
